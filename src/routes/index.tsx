@@ -365,7 +365,7 @@ function Index() {
       <section className="py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-card p-10 text-center md:p-16">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/10 to-primary-glow/10" />
+            <div className="absolute inset-0 -z-10 bg-linear-to-r from-primary/10 to-primary-glow/10" />
             <div className="absolute -right-20 -top-20 size-64 rounded-full bg-primary/20 blur-[100px]" />
             <div className="absolute -bottom-20 -left-20 size-64 rounded-full bg-primary-glow/20 blur-[100px]" />
 
