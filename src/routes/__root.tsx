@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "아이디몰 - 게임 계정 거래의 중심" },
       {
         name: "description",
-        content: "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다.",
+        content: "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다. 철저한 인증과 실시간 모니터링으로 안전한 거래를 보장합니다.",
       },
       { name: "author", content: "아이디몰" },
       {
@@ -89,18 +89,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:description",
-        content: "검증된 판매자와 구매자를 연결하는 가장 안전한 게임 계정 거래소입니다.",
+        content: "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다. 철저한 인증과 실시간 모니터링으로 안전한 거래를 보장합니다.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@idmall" },
+      { name: "twitter:title", content: "아이디몰 - 게임 계정 거래의 중심" },
+      { name: "twitter:description", content: "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다. 철저한 인증과 실시간 모니터링으로 안전한 거래를 보장합니다." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3b03775b-fca7-4bca-87a7-173cfbabcbfb/id-preview-51e9a05c--cd50cc40-a82c-4c0c-8d20-0c55f0e512bb.lovable.app-1785344795631.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3b03775b-fca7-4bca-87a7-173cfbabcbfb/id-preview-51e9a05c--cd50cc40-a82c-4c0c-8d20-0c55f0e512bb.lovable.app-1785344795631.png" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,

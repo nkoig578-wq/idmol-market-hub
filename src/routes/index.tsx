@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "검증된 판매자와 구매자를 연결하는 가장 안전한 게임 계정 거래소, 아이디몰 공식 디스코드 서버입니다.",
+          "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다. 철저한 인증과 실시간 모니터링으로 안전한 거래를 보장합니다.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
