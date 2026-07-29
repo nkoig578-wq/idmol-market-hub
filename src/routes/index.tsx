@@ -181,7 +181,7 @@ function Index() {
       {/* Hero */}
       <header className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute left-1/2 top-0 h-[600px] w-[1200px] -translate-x-1/2 bg-radial-[ellipse_at_top] from-primary/15 via-transparent to-transparent" />
+          <div className="absolute left-1/2 top-0 h-[600px] w-[1200px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
         </div>
 
@@ -204,7 +204,7 @@ function Index() {
 
           <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
             가장 안전한{" "}
-            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-primary-glow bg-clip-text text-transparent">
               게임 계정 거래
             </span>
             의 중심
