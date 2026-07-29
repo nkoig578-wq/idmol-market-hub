@@ -1,12 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Shield,
-  Users,
-  MessageCircle,
-  ArrowRight,
-  Headphones,
-  Clock,
-} from "lucide-react";
+import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
 
 import logo from "@/assets/logo.png";
 import gameValorant from "@/assets/game-valorant.jpg";
@@ -82,20 +75,17 @@ const safetyFeatures = [
   {
     icon: Shield,
     title: "철저한 사기 방지",
-    description:
-      "자체 블랙리스트와 실시간 모니터링으로 부적절한 사용자를 사전에 차단합니다.",
+    description: "자체 블랙리스트와 실시간 모니터링으로 부적절한 사용자를 사전에 차단합니다.",
   },
   {
     icon: Headphones,
     title: "24/7 중개 지원",
-    description:
-      "숙련된 관리자가 거래 전 과정을 안전하게 중개하여 분쟁을 최소화합니다.",
+    description: "숙련된 관리자가 거래 전 과정을 안전하게 중개하여 분쟁을 최소화합니다.",
   },
   {
     icon: Users,
     title: "투명한 거래 후기",
-    description:
-      "실제 거래 데이터와 생생한 후기를 통해 판매자의 신용도를 즉시 확인하세요.",
+    description: "실제 거래 데이터와 생생한 후기를 통해 판매자의 신용도를 즉시 확인하세요.",
   },
 ];
 
@@ -150,30 +140,21 @@ function Index() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="flex items-center gap-2.5">
-            <img
-              src={logo}
-              alt="아이디몰 로고"
-              className="size-9 rounded-lg shadow-neon"
-            />
+            <img src={logo} alt="아이디몰 로고" className="size-9 rounded-lg shadow-neon" />
             <span className="text-lg font-bold tracking-tight">아이디몰</span>
           </Link>
           <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
             <a href="#games" className="transition-colors hover:text-foreground">
               지원 게임
             </a>
-            <a
-              href="#safety"
-              className="transition-colors hover:text-foreground"
-            >
+            <a href="#safety" className="transition-colors hover:text-foreground">
               안전 보장
             </a>
             <a href="#faq" className="transition-colors hover:text-foreground">
               FAQ
             </a>
           </div>
-          <DiscordButton className="px-5 py-2.5 text-sm">
-            서버 입장
-          </DiscordButton>
+          <DiscordButton className="px-5 py-2.5 text-sm">서버 입장</DiscordButton>
         </div>
       </nav>
 
@@ -209,15 +190,12 @@ function Index() {
             의 중심
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            아이디몰은 검증된 판매자와 구매자를 연결하는 디스코드 게임 계정 거래
-            커뮤니티입니다. 철저한 인증과 실시간 모니터링으로 당신의 소중한
-            거래를 보호합니다.
+            아이디몰은 검증된 판매자와 구매자를 연결하는 디스코드 게임 계정 거래 커뮤니티입니다.
+            철저한 인증과 실시간 모니터링으로 당신의 소중한 거래를 보호합니다.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <DiscordButton className="px-8 py-4 text-base">
-              지금 바로 서버 입장
-            </DiscordButton>
+            <DiscordButton className="px-8 py-4 text-base">지금 바로 서버 입장</DiscordButton>
             <a
               href="#games"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-8 py-4 text-sm font-semibold text-foreground transition-colors hover:bg-card/80"
@@ -234,12 +212,8 @@ function Index() {
         <div className="mx-auto grid max-w-5xl grid-cols-3 gap-6 px-6 text-center">
           {stats.map((stat) => (
             <div key={stat.label} className="space-y-1">
-              <p className="text-2xl font-bold text-primary md:text-4xl">
-                {stat.value}
-              </p>
-              <p className="text-xs text-muted-foreground md:text-sm">
-                {stat.label}
-              </p>
+              <p className="text-2xl font-bold text-primary md:text-4xl">{stat.value}</p>
+              <p className="text-xs text-muted-foreground md:text-sm">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -253,9 +227,7 @@ function Index() {
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                 Marketplace
               </p>
-              <h2 className="text-3xl font-bold tracking-tight">
-                인기 거래 품목
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tight">인기 거래 품목</h2>
             </div>
             <p className="hidden text-sm text-muted-foreground md:block">
               현재 4개 주요 게임 거래 지원
@@ -284,9 +256,7 @@ function Index() {
                     {game.tag}
                   </p>
                   <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    매물 {game.count} 건
-                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
                 </div>
               </div>
             ))}
@@ -298,12 +268,8 @@ function Index() {
       <section id="safety" className="bg-card/30 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-              Safety
-            </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight">
-              왜 아이디몰이 안전할까요?
-            </h2>
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Safety</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">왜 아이디몰이 안전할까요?</h2>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
@@ -329,20 +295,13 @@ function Index() {
       <section id="faq" className="py-24">
         <div className="mx-auto max-w-3xl px-6">
           <div className="mb-12 text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-              FAQ
-            </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight">
-              자주 묻는 질문
-            </h2>
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">FAQ</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">자주 묻는 질문</h2>
           </div>
 
           <div className="space-y-4">
             {faqs.map((faq) => (
-              <div
-                key={faq.question}
-                className="rounded-2xl border border-border bg-card p-6"
-              >
+              <div key={faq.question} className="rounded-2xl border border-border bg-card p-6">
                 <div className="flex items-start gap-4">
                   <div className="mt-0.5 rounded-full bg-primary/10 p-1.5 text-primary">
                     <MessageCircle className="size-4" />
@@ -372,13 +331,11 @@ function Index() {
               지금 바로 아이디몰에 합류하세요
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              수천 명의 유저가 이미 선택한 안전한 게임 계정 거래 커뮤니티.
-              디스코드 서버에서 지금 시작해보세요.
+              수천 명의 유저가 이미 선택한 안전한 게임 계정 거래 커뮤니티. 디스코드 서버에서 지금
+              시작해보세요.
             </p>
             <div className="mt-8">
-              <DiscordButton className="px-8 py-4 text-base">
-                디스코드 서버 참가하기
-              </DiscordButton>
+              <DiscordButton className="px-8 py-4 text-base">디스코드 서버 참가하기</DiscordButton>
             </div>
           </div>
         </div>
@@ -388,11 +345,7 @@ function Index() {
       <footer className="border-t border-border py-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
           <div className="flex items-center gap-2.5">
-            <img
-              src={logo}
-              alt="아이디몰 로고"
-              className="size-8 rounded-lg shadow-neon"
-            />
+            <img src={logo} alt="아이디몰 로고" className="size-8 rounded-lg shadow-neon" />
             <span className="font-bold">아이디몰</span>
           </div>
           <p className="text-center text-sm text-muted-foreground">
@@ -409,16 +362,10 @@ function Index() {
       <div className="fixed bottom-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-md -translate-x-1/2">
         <div className="flex items-center justify-between gap-4 rounded-2xl border border-border bg-card/95 p-4 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="아이디몰"
-              className="size-10 rounded-lg shadow-neon"
-            />
+            <img src={logo} alt="아이디몰" className="size-10 rounded-lg shadow-neon" />
             <div>
               <p className="text-sm font-semibold">아이디몰 공식 서버</p>
-              <p className="text-xs text-muted-foreground">
-                현재 1,240명 활동 중
-              </p>
+              <p className="text-xs text-muted-foreground">현재 1,240명 활동 중</p>
             </div>
           </div>
           <DiscordButton className="px-4 py-2 text-xs">

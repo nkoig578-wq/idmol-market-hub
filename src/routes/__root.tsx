@@ -80,8 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "아이디몰 - 게임 계정 거래의 중심" },
       {
         name: "description",
-        content:
-          "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다.",
+        content: "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다.",
       },
       { name: "author", content: "아이디몰" },
       {
@@ -90,8 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:description",
-        content:
-          "검증된 판매자와 구매자를 연결하는 가장 안전한 게임 계정 거래소입니다.",
+        content: "검증된 판매자와 구매자를 연결하는 가장 안전한 게임 계정 거래소입니다.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
