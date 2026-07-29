@@ -190,11 +190,11 @@ function Index() {
           </div>
 
           <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-            가장 안전한{" "}
+            디스코드로 간편한{" "}
             <span className="bg-linear-to-r from-primary to-primary-glow bg-clip-text text-transparent">
               게임 계정 거래
-            </span>
-            의 중심
+            </span>{" "}
+            플랫폼
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             아이디몰은 검증된 판매자와 구매자를 연결하는 디스코드 게임 계정 거래 커뮤니티입니다.
