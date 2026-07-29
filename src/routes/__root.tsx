@@ -77,21 +77,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "아이디몰 - 게임 계정 거래의 중심" },
+      {
+        name: "description",
+        content:
+          "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다.",
+      },
+      { name: "author", content: "아이디몰" },
+      {
+        property: "og:title",
+        content: "아이디몰 - 게임 계정 거래의 중심",
+      },
+      {
+        property: "og:description",
+        content:
+          "검증된 판매자와 구매자를 연결하는 가장 안전한 게임 계정 거래소입니다.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@idmall" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
