@@ -4,7 +4,6 @@ import {
   Users,
   MessageCircle,
   ArrowRight,
-  Check,
   Headphones,
   Clock,
 } from "lucide-react";
