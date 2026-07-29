@@ -122,7 +122,7 @@ function DiscordButton({
 }) {
   return (
     <a
-      href="https://discord.gg/invite"
+      href="https://discord.gg/5hwNWRZMsW"
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-flex items-center justify-center gap-2 bg-linear-to-r from-primary to-primary-glow text-primary-foreground font-semibold rounded-xl transition-all hover:brightness-110 hover:shadow-neon active:scale-95 ${className}`}
