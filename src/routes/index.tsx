@@ -136,7 +136,7 @@ function DiscordButton({
       href="https://discord.gg/invite"
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold rounded-xl transition-all hover:brightness-110 hover:shadow-neon active:scale-95 ${className}`}
+      className={`inline-flex items-center justify-center gap-2 bg-linear-to-r from-primary to-primary-glow text-primary-foreground font-semibold rounded-xl transition-all hover:brightness-110 hover:shadow-neon active:scale-95 ${className}`}
     >
       <DiscordIcon className="size-5" />
       {children}
