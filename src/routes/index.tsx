@@ -190,7 +190,7 @@ function Index() {
           </div>
 
           <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-            디스코드로 간편한{" "}
+            디스코드{" "}
             <span className="bg-linear-to-r from-primary to-primary-glow bg-clip-text text-transparent">
               게임 계정 거래
             </span>{" "}
