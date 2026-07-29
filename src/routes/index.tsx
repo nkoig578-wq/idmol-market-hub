@@ -3,9 +3,10 @@ import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "luc
 
 import logo from "@/assets/logo.png";
 import gameValorant from "@/assets/game-valorant.jpg";
+import gamePubg from "@/assets/game-pubg.jpg";
 import gameLol from "@/assets/game-lol.jpg";
-import gameMaple from "@/assets/game-maple.jpg";
-import gameLostArk from "@/assets/game-lostark.jpg";
+import gameOverwatch from "@/assets/game-overwatch.jpg";
+import gameFifa from "@/assets/game-fifa.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -52,22 +53,28 @@ const games = [
     tag: "VALORANT",
   },
   {
+    title: "배틀그라운드",
+    count: "3,500+",
+    image: gamePubg,
+    tag: "BATTLEGROUNDS",
+  },
+  {
     title: "리그 오브 레전드",
     count: "2,800+",
     image: gameLol,
     tag: "LEAGUE OF LEGENDS",
   },
   {
-    title: "메이플스토리",
-    count: "1,500+",
-    image: gameMaple,
-    tag: "MAPLESTORY",
+    title: "오버워치",
+    count: "1,900+",
+    image: gameOverwatch,
+    tag: "OVERWATCH",
   },
   {
-    title: "로스트아크",
-    count: "900+",
-    image: gameLostArk,
-    tag: "LOST ARK",
+    title: "피파온라인",
+    count: "1,200+",
+    image: gameFifa,
+    tag: "EA SPORTS FC",
   },
 ];
 
@@ -230,11 +237,11 @@ function Index() {
               <h2 className="text-3xl font-bold tracking-tight">인기 거래 품목</h2>
             </div>
             <p className="hidden text-sm text-muted-foreground md:block">
-              현재 4개 주요 게임 거래 지원
+              현재 5개 주요 게임 거래 지원
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {games.map((game) => (
               <div
                 key={game.title}
