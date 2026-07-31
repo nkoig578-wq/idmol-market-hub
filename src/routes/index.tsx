@@ -149,6 +149,22 @@ function DiscordButton({
 }
 
 function Index() {
+  const { data: discord } = useSuspenseQuery(discordStatsQueryOptions);
+  const memberLabel =
+    discord.memberCount > 0 ? `${numberFormat.format(discord.memberCount)}명` : "3,000명 이상";
+  const presenceLabel =
+    discord.presenceCount > 0 ? `${numberFormat.format(discord.presenceCount)}명` : "다수";
+  const stats = [
+    { value: "5,000+", label: "누적 거래" },
+    {
+      value: discord.memberCount > 0 ? numberFormat.format(discord.memberCount) : "3,000+",
+      label: "전체 멤버",
+    },
+    {
+      value: discord.presenceCount > 0 ? numberFormat.format(discord.presenceCount) : "24/7",
+      label: "현재 접속 중",
+    },
+  ];
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 selection:text-foreground">
       {/* Navigation */}
