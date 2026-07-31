@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
 
+import { getDiscordStats } from "@/lib/discord.functions";
 import logo from "@/assets/logo.png";
 import gameValorant from "@/assets/game-valorant.jpg";
 import gamePubg from "@/assets/game-pubg.jpg";
@@ -8,8 +10,18 @@ import gameLol from "@/assets/game-lol.jpg";
 import gameOverwatch from "@/assets/game-overwatch.jpg";
 import gameFifa from "@/assets/game-fifa.jpg";
 
+const discordStatsQueryOptions = queryOptions({
+  queryKey: ["discord-stats"],
+  queryFn: () => getDiscordStats(),
+  staleTime: 60_000,
+  refetchInterval: 60_000,
+});
+
 export const Route = createFileRoute("/")({
   component: Index,
+  loader: ({ context }) => {
+    context.queryClient.ensureQueryData(discordStatsQueryOptions);
+  },
   head: () => ({
     meta: [
       { title: "아이디몰 - 게임 계정 거래 디스코드" },
