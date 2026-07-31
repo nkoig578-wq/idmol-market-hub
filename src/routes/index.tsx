@@ -202,7 +202,7 @@ function Index() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full bg-primary" />
             </span>
-            현재 2,192명 접속 중
+            현재 {presenceLabel} 접속 중
           </div>
 
           <div className="mb-8">
@@ -396,7 +396,7 @@ function Index() {
             <img src={logo} alt="아이디몰" className="size-10 rounded-lg shadow-neon" />
             <div>
               <p className="text-sm font-semibold">아이디몰 공식 서버</p>
-              <p className="text-xs text-muted-foreground">현재 3,000명 이상 활동 중</p>
+              <p className="text-xs text-muted-foreground">멤버 {memberLabel} 활동 중</p>
             </div>
           </div>
           <DiscordButton className="px-4 py-2 text-xs">
