@@ -24,13 +24,13 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "아이디몰 - 게임 계정 거래 디스코드" },
+      { title: "아이디몰 ( IDM ) - 게임 계정 거래 디스코드" },
       {
         name: "description",
         content:
           "아이디몰은 국내 최대 규모의 디스코드 게임 계정 거래 커뮤니티입니다. 회원 인증과 실시간 모니터링으로 안전한 거래를 지원합니다",
       },
-      { property: "og:title", content: "아이디몰 - 게임 계정 거래 디스코드" },
+      { property: "og:title", content: "아이디몰 ( IDM ) - 게임 계정 거래 디스코드" },
       {
         property: "og:description",
         content:
