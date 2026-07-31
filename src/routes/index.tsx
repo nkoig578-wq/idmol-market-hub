@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
 
+import { getDiscordStats } from "@/lib/discord.functions";
 import logo from "@/assets/logo.png";
 import gameValorant from "@/assets/game-valorant.jpg";
 import gamePubg from "@/assets/game-pubg.jpg";
@@ -8,8 +10,18 @@ import gameLol from "@/assets/game-lol.jpg";
 import gameOverwatch from "@/assets/game-overwatch.jpg";
 import gameFifa from "@/assets/game-fifa.jpg";
 
+const discordStatsQueryOptions = queryOptions({
+  queryKey: ["discord-stats"],
+  queryFn: () => getDiscordStats(),
+  staleTime: 60_000,
+  refetchInterval: 60_000,
+});
+
 export const Route = createFileRoute("/")({
   component: Index,
+  loader: ({ context }) => {
+    context.queryClient.ensureQueryData(discordStatsQueryOptions);
+  },
   head: () => ({
     meta: [
       { title: "아이디몰 - 게임 계정 거래 디스코드" },
@@ -96,11 +108,7 @@ const safetyFeatures = [
   },
 ];
 
-const stats = [
-  { value: "5,000+", label: "누적 거래" },
-  { value: "3,000+", label: "활동 유저" },
-  { value: "24/7", label: "실시간 모니터링" },
-];
+const numberFormat = new Intl.NumberFormat("ko-KR");
 
 const faqs = [
   {
@@ -141,6 +149,22 @@ function DiscordButton({
 }
 
 function Index() {
+  const { data: discord } = useSuspenseQuery(discordStatsQueryOptions);
+  const memberLabel =
+    discord.memberCount > 0 ? `${numberFormat.format(discord.memberCount)}명` : "3,000명 이상";
+  const presenceLabel =
+    discord.presenceCount > 0 ? `${numberFormat.format(discord.presenceCount)}명` : "다수";
+  const stats = [
+    { value: "5,000+", label: "누적 거래" },
+    {
+      value: discord.memberCount > 0 ? numberFormat.format(discord.memberCount) : "3,000+",
+      label: "전체 멤버",
+    },
+    {
+      value: discord.presenceCount > 0 ? numberFormat.format(discord.presenceCount) : "24/7",
+      label: "현재 접속 중",
+    },
+  ];
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 selection:text-foreground">
       {/* Navigation */}
@@ -178,7 +202,7 @@ function Index() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full bg-primary" />
             </span>
-            현재 2,192명 접속 중
+            현재 {presenceLabel} 접속 중
           </div>
 
           <div className="mb-8">
@@ -372,7 +396,7 @@ function Index() {
             <img src={logo} alt="아이디몰" className="size-10 rounded-lg shadow-neon" />
             <div>
               <p className="text-sm font-semibold">아이디몰 공식 서버</p>
-              <p className="text-xs text-muted-foreground">현재 3,000명 이상 활동 중</p>
+              <p className="text-xs text-muted-foreground">멤버 {memberLabel} 활동 중</p>
             </div>
           </div>
           <DiscordButton className="px-4 py-2 text-xs">
