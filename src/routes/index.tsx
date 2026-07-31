@@ -108,11 +108,7 @@ const safetyFeatures = [
   },
 ];
 
-const stats = [
-  { value: "5,000+", label: "누적 거래" },
-  { value: "3,000+", label: "활동 유저" },
-  { value: "24/7", label: "실시간 모니터링" },
-];
+const numberFormat = new Intl.NumberFormat("ko-KR");
 
 const faqs = [
   {
