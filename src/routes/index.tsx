@@ -131,6 +131,7 @@ const faqs = [
 ];
 
 function DiscordButton({
+  const tickerItems = [];
   children,
   className = "",
 }: {
