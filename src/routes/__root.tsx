@@ -105,12 +105,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:image",
         content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3b03775b-fca7-4bca-87a7-173cfbabcbfb/id-preview-51e9a05c--cd50cc40-a82c-4c0c-8d20-0c55f0e512bb.lovable.app-1785344795631.png",
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43b1f43b-27ae-4ed6-aa1b-c20b0cbf899d/id-preview-e3fb4a94--cd50cc40-a82c-4c0c-8d20-0c55f0e512bb.lovable.app-1785558756802.png",
       },
       {
         name: "twitter:image",
         content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3b03775b-fca7-4bca-87a7-173cfbabcbfb/id-preview-51e9a05c--cd50cc40-a82c-4c0c-8d20-0c55f0e512bb.lovable.app-1785344795631.png",
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43b1f43b-27ae-4ed6-aa1b-c20b0cbf899d/id-preview-e3fb4a94--cd50cc40-a82c-4c0c-8d20-0c55f0e512bb.lovable.app-1785558756802.png",
       },
     ],
     links: [
@@ -119,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico", sizes: "48x48" },
-      { rel: "icon", type: "image/png", href: "/favicon.png", sizes: "64x64" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico", sizes: "64x64" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
