@@ -247,7 +247,7 @@ function Index() {
         <div className="mx-auto grid max-w-5xl grid-cols-3 gap-6 px-6 text-center">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 120} className="space-y-1">
-              <p className="text-2xl font-bold text-primary drop-shadow-[0_0_18px_hsl(var(--primary)/0.35)] md:text-4xl">
+              <p className="text-2xl font-bold text-primary [text-shadow:0_0_24px_color-mix(in_oklch,var(--primary)_45%,transparent)] md:text-4xl">
                 <CountUp value={stat.value} suffix={stat.suffix} />
               </p>
               <p className="text-xs text-muted-foreground md:text-sm">{stat.label}</p>
