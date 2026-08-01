@@ -3,6 +3,8 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
 
 import { getDiscordStats } from "@/lib/discord.functions";
+import { CountUp } from "@/components/count-up";
+import { Reveal } from "@/components/reveal";
 import logo from "@/assets/logo.png";
 import gameValorant from "@/assets/game-valorant.jpg";
 import gamePubg from "@/assets/game-pubg.jpg";
@@ -155,13 +157,15 @@ function Index() {
   const presenceLabel =
     discord.presenceCount > 0 ? `${numberFormat.format(discord.presenceCount)}명` : "다수";
   const stats = [
-    { value: "5,000+", label: "누적 거래" },
+    { value: 5000, suffix: "+", label: "누적 거래" },
     {
-      value: discord.memberCount > 0 ? numberFormat.format(discord.memberCount) : "3,000+",
+      value: discord.memberCount > 0 ? discord.memberCount : 3000,
+      suffix: discord.memberCount > 0 ? "" : "+",
       label: "전체 멤버",
     },
     {
-      value: discord.presenceCount > 0 ? numberFormat.format(discord.presenceCount) : "24/7",
+      value: discord.presenceCount > 0 ? discord.presenceCount : 0,
+      suffix: "",
       label: "현재 접속 중",
     },
   ];
@@ -241,11 +245,13 @@ function Index() {
       {/* Stats */}
       <section className="border-y border-border/50 bg-card/30 py-12">
         <div className="mx-auto grid max-w-5xl grid-cols-3 gap-6 px-6 text-center">
-          {stats.map((stat) => (
-            <div key={stat.label} className="space-y-1">
-              <p className="text-2xl font-bold text-primary md:text-4xl">{stat.value}</p>
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 120} className="space-y-1">
+              <p className="text-2xl font-bold text-primary drop-shadow-[0_0_18px_hsl(var(--primary)/0.35)] md:text-4xl">
+                <CountUp value={stat.value} suffix={stat.suffix} />
+              </p>
               <p className="text-xs text-muted-foreground md:text-sm">{stat.label}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
