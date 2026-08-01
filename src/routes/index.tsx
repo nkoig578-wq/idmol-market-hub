@@ -132,7 +132,6 @@ const faqs = [
 
 function DiscordButton({
   children,
-  children,
   className = "",
 }: {
   children: React.ReactNode;
