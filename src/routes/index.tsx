@@ -65,30 +65,35 @@ const games = [
     count: "4,200+",
     image: gameValorant,
     tag: "VALORANT",
+    line: "언랭부터 레디언트까지, 원하는 티어 그대로",
   },
   {
     title: "배틀그라운드",
     count: "3,500+",
     image: gamePubg,
     tag: "BATTLEGROUNDS",
+    line: "치킨 뜯을 준비된 계정만 검수 후 등록",
   },
   {
     title: "리그 오브 레전드",
     count: "2,800+",
     image: gameLol,
     tag: "LEAGUE OF LEGENDS",
+    line: "챌린저 계정·스킨 보유 계정 다수 보유",
   },
   {
     title: "오버워치",
     count: "1,900+",
     image: gameOverwatch,
     tag: "OVERWATCH",
+    line: "겐지 장인 계정까지 안전하게 중개",
   },
   {
     title: "피파온라인",
     count: "1,200+",
     image: gameFifa,
     tag: "EA SPORTS FC",
+    line: "스쿼드 완성 계정, 시세 그대로 거래",
   },
 ];
 
@@ -128,6 +133,15 @@ const faqs = [
     answer:
       "모든 거래는 관리자 중개 하에 이루어지며, 사기 의심 신고는 24시간 접수됩니다. 증거를 토대로 신속히 조치합니다.",
   },
+];
+
+const tickerItems = [
+  "발로란트 레디언트 계정 거래 완료",
+  "배틀그라운드 컨퀘러 계정 매물 등록",
+  "리그 오브 레전드 챌린저 계정 인증 완료",
+  "오버워치 겐지 스킨 풀보유 계정 판매 중",
+  "피파온라인 감독 계정 안전 거래 완료",
+  "운영진 중개 거래 100% 정산 완료",
 ];
 
 function DiscordButton({
@@ -213,7 +227,7 @@ function Index() {
             <img
               src={logo}
               alt="아이디몰"
-              className="mx-auto size-28 rounded-2xl shadow-neon-lg md:size-36"
+              className="animate-float mx-auto size-28 rounded-2xl shadow-neon-lg md:size-36"
             />
           </div>
 
@@ -230,7 +244,10 @@ function Index() {
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <DiscordButton className="px-8 py-4 text-base">지금 바로 서버 입장</DiscordButton>
+            <DiscordButton className="group relative overflow-hidden px-8 py-4 text-base">
+              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              지금 바로 서버 입장
+            </DiscordButton>
             <a
               href="#games"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-8 py-4 text-sm font-semibold text-foreground transition-colors hover:bg-card/80"
@@ -239,6 +256,10 @@ function Index() {
               <ArrowRight className="size-4" />
             </a>
           </div>
+
+          <p className="mt-6 text-xs text-muted-foreground">
+            가입은 30초 · 중개 수수료 없음 · 24시간 운영진 상시 대기
+          </p>
         </div>
       </header>
 
@@ -252,6 +273,21 @@ function Index() {
               </p>
               <p className="text-xs text-muted-foreground md:text-sm">{stat.label}</p>
             </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Live ticker */}
+      <section className="overflow-hidden border-b border-border/50 bg-background py-3">
+        <div className="flex w-max animate-marquee gap-3">
+          {[...tickerItems, ...tickerItems].map((item, i) => (
+            <span
+              key={`${item}-${i}`}
+              className="flex shrink-0 items-center gap-2 rounded-full border border-primary/20 bg-card/60 px-4 py-1.5 text-xs text-muted-foreground"
+            >
+              <span className="size-1.5 rounded-full bg-primary shadow-neon" />
+              {item}
+            </span>
           ))}
         </div>
       </section>
@@ -293,6 +329,9 @@ function Index() {
                     </p>
                     <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
+                    <p className="mt-2 max-h-0 overflow-hidden text-xs leading-relaxed text-primary opacity-0 transition-all duration-500 group-hover:max-h-12 group-hover:opacity-100">
+                      {game.line}
+                    </p>
                   </div>
                 </div>
               </Reveal>
