@@ -3,6 +3,8 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
 
 import { getDiscordStats } from "@/lib/discord.functions";
+import { CountUp } from "@/components/count-up";
+import { Reveal } from "@/components/reveal";
 import logo from "@/assets/logo.png";
 import gameValorant from "@/assets/game-valorant.jpg";
 import gamePubg from "@/assets/game-pubg.jpg";
@@ -155,13 +157,15 @@ function Index() {
   const presenceLabel =
     discord.presenceCount > 0 ? `${numberFormat.format(discord.presenceCount)}명` : "다수";
   const stats = [
-    { value: "5,000+", label: "누적 거래" },
+    { value: 5000, suffix: "+", label: "누적 거래" },
     {
-      value: discord.memberCount > 0 ? numberFormat.format(discord.memberCount) : "3,000+",
+      value: discord.memberCount > 0 ? discord.memberCount : 3000,
+      suffix: discord.memberCount > 0 ? "" : "+",
       label: "전체 멤버",
     },
     {
-      value: discord.presenceCount > 0 ? numberFormat.format(discord.presenceCount) : "24/7",
+      value: discord.presenceCount > 0 ? discord.presenceCount : 0,
+      suffix: "",
       label: "현재 접속 중",
     },
   ];
@@ -241,11 +245,13 @@ function Index() {
       {/* Stats */}
       <section className="border-y border-border/50 bg-card/30 py-12">
         <div className="mx-auto grid max-w-5xl grid-cols-3 gap-6 px-6 text-center">
-          {stats.map((stat) => (
-            <div key={stat.label} className="space-y-1">
-              <p className="text-2xl font-bold text-primary md:text-4xl">{stat.value}</p>
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 120} className="space-y-1">
+              <p className="text-2xl font-bold text-primary [text-shadow:0_0_24px_color-mix(in_oklch,var(--primary)_45%,transparent)] md:text-4xl">
+                <CountUp value={stat.value} suffix={stat.suffix} />
+              </p>
               <p className="text-xs text-muted-foreground md:text-sm">{stat.label}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -266,30 +272,30 @@ function Index() {
           </div>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {games.map((game) => (
-              <div
-                key={game.title}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/50 hover:shadow-neon"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img
-                    src={game.image}
-                    alt={game.title}
-                    loading="lazy"
-                    width={512}
-                    height={640}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
+            {games.map((game, i) => (
+              <Reveal key={game.title} delay={i * 90}>
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-neon">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <img
+                      src={game.image}
+                      alt={game.title}
+                      loading="lazy"
+                      width={512}
+                      height={640}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-primary/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                      {game.tag}
+                    </p>
+                    <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">
-                    {game.tag}
-                  </p>
-                  <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -304,19 +310,18 @@ function Index() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {safetyFeatures.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-neon"
-              >
-                <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
-                  <feature.icon className="size-6" />
+            {safetyFeatures.map((feature, i) => (
+              <Reveal key={feature.title} delay={i * 120}>
+                <div className="group h-full rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-neon">
+                  <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-transform duration-300 group-hover:scale-110">
+                    <feature.icon className="size-6" />
+                  </div>
+                  <h3 className="text-lg font-bold">{feature.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -331,20 +336,22 @@ function Index() {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-start gap-4">
-                  <div className="mt-0.5 rounded-full bg-primary/10 p-1.5 text-primary">
-                    <MessageCircle className="size-4" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {faq.answer}
-                    </p>
+            {faqs.map((faq, i) => (
+              <Reveal key={faq.question} delay={i * 100}>
+                <div className="rounded-2xl border border-border bg-card p-6 transition-colors duration-300 hover:border-primary/30">
+                  <div className="flex items-start gap-4">
+                    <div className="mt-0.5 rounded-full bg-primary/10 p-1.5 text-primary">
+                      <MessageCircle className="size-4" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{faq.question}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
