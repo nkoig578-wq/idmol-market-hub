@@ -275,25 +275,25 @@ function Index() {
             {games.map((game, i) => (
               <Reveal key={game.title} delay={i * 90}>
                 <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-neon">
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img
-                    src={game.image}
-                    alt={game.title}
-                    loading="lazy"
-                    width={512}
-                    height={640}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
-                  <div className="absolute inset-0 bg-linear-to-t from-primary/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">
-                    {game.tag}
-                  </p>
-                  <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
-                </div>
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <img
+                      src={game.image}
+                      alt={game.title}
+                      loading="lazy"
+                      width={512}
+                      height={640}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-primary/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                      {game.tag}
+                    </p>
+                    <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -313,13 +313,13 @@ function Index() {
             {safetyFeatures.map((feature, i) => (
               <Reveal key={feature.title} delay={i * 120}>
                 <div className="group h-full rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-neon">
-                <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-transform duration-300 group-hover:scale-110">
-                  <feature.icon className="size-6" />
-                </div>
-                <h3 className="text-lg font-bold">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
+                  <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-transform duration-300 group-hover:scale-110">
+                    <feature.icon className="size-6" />
+                  </div>
+                  <h3 className="text-lg font-bold">{feature.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -339,17 +339,17 @@ function Index() {
             {faqs.map((faq, i) => (
               <Reveal key={faq.question} delay={i * 100}>
                 <div className="rounded-2xl border border-border bg-card p-6 transition-colors duration-300 hover:border-primary/30">
-                <div className="flex items-start gap-4">
-                  <div className="mt-0.5 rounded-full bg-primary/10 p-1.5 text-primary">
-                    <MessageCircle className="size-4" />
+                  <div className="flex items-start gap-4">
+                    <div className="mt-0.5 rounded-full bg-primary/10 p-1.5 text-primary">
+                      <MessageCircle className="size-4" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{faq.question}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
                 </div>
               </Reveal>
             ))}
