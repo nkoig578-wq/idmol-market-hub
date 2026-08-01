@@ -329,6 +329,9 @@ function Index() {
                     </p>
                     <h3 className="mt-1 text-xl font-bold">{game.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">매물 {game.count} 건</p>
+                    <p className="mt-2 max-h-0 overflow-hidden text-xs leading-relaxed text-primary opacity-0 transition-all duration-500 group-hover:max-h-12 group-hover:opacity-100">
+                      {game.line}
+                    </p>
                   </div>
                 </div>
               </Reveal>
