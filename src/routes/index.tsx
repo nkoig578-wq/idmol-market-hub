@@ -65,30 +65,35 @@ const games = [
     count: "4,200+",
     image: gameValorant,
     tag: "VALORANT",
+    line: "언랭부터 레디언트까지, 원하는 티어 그대로",
   },
   {
     title: "배틀그라운드",
     count: "3,500+",
     image: gamePubg,
     tag: "BATTLEGROUNDS",
+    line: "치킨 뜯을 준비된 계정만 검수 후 등록",
   },
   {
     title: "리그 오브 레전드",
     count: "2,800+",
     image: gameLol,
     tag: "LEAGUE OF LEGENDS",
+    line: "챌린저 계정·스킨 보유 계정 다수 보유",
   },
   {
     title: "오버워치",
     count: "1,900+",
     image: gameOverwatch,
     tag: "OVERWATCH",
+    line: "겐지 장인 계정까지 안전하게 중개",
   },
   {
     title: "피파온라인",
     count: "1,200+",
     image: gameFifa,
     tag: "EA SPORTS FC",
+    line: "스쿼드 완성 계정, 시세 그대로 거래",
   },
 ];
 
