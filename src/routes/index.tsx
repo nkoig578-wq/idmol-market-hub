@@ -213,7 +213,7 @@ function Index() {
             <img
               src={logo}
               alt="아이디몰"
-              className="mx-auto size-28 rounded-2xl shadow-neon-lg md:size-36"
+              className="animate-float mx-auto size-28 rounded-2xl shadow-neon-lg md:size-36"
             />
           </div>
 
@@ -230,7 +230,10 @@ function Index() {
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <DiscordButton className="px-8 py-4 text-base">지금 바로 서버 입장</DiscordButton>
+            <DiscordButton className="group relative overflow-hidden px-8 py-4 text-base">
+              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              지금 바로 서버 입장
+            </DiscordButton>
             <a
               href="#games"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-8 py-4 text-sm font-semibold text-foreground transition-colors hover:bg-card/80"
@@ -239,6 +242,10 @@ function Index() {
               <ArrowRight className="size-4" />
             </a>
           </div>
+
+          <p className="mt-6 text-xs text-muted-foreground">
+            가입은 30초 · 중개 수수료 없음 · 24시간 운영진 상시 대기
+          </p>
         </div>
       </header>
 
@@ -252,6 +259,21 @@ function Index() {
               </p>
               <p className="text-xs text-muted-foreground md:text-sm">{stat.label}</p>
             </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Live ticker */}
+      <section className="overflow-hidden border-b border-border/50 bg-background py-3">
+        <div className="flex w-max animate-marquee gap-3">
+          {[...tickerItems, ...tickerItems].map((item, i) => (
+            <span
+              key={`${item}-${i}`}
+              className="flex shrink-0 items-center gap-2 rounded-full border border-primary/20 bg-card/60 px-4 py-1.5 text-xs text-muted-foreground"
+            >
+              <span className="size-1.5 rounded-full bg-primary shadow-neon" />
+              {item}
+            </span>
           ))}
         </div>
       </section>
