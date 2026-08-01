@@ -130,8 +130,16 @@ const faqs = [
   },
 ];
 
+const tickerItems = [
+  "발로란트 레디언트 계정 거래 완료",
+  "배틀그라운드 컨퀘러 계정 매물 등록",
+  "리그 오브 레전드 챌린저 계정 인증 완료",
+  "오버워치 겐지 스킨 풀보유 계정 판매 중",
+  "피파온라인 감독 계정 안전 거래 완료",
+  "운영진 중개 거래 100% 정산 완료",
+];
+
 function DiscordButton({
-  const tickerItems = [];
   children,
   className = "",
 }: {
