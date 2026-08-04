@@ -9,7 +9,7 @@ import {
   Clock,
   UserCheck,
   Search,
-  HandshakeIcon,
+  Handshake,
 } from "lucide-react";
 
 import { getDiscordStats } from "@/lib/discord.functions";
@@ -140,6 +140,27 @@ const safetyFeatures = [
 ];
 
 const numberFormat = new Intl.NumberFormat("ko-KR");
+
+const steps = [
+  {
+    icon: UserCheck,
+    step: "STEP 01",
+    title: "서버 입장 & 인증",
+    description: "디스코드 서버에 입장하고 30초 인증 절차만 마치면 모든 거래 채널이 열립니다.",
+  },
+  {
+    icon: Search,
+    step: "STEP 02",
+    title: "매물 확인",
+    description: "게임별 채널에서 검수된 계정 매물과 판매자 거래 후기를 한눈에 비교하세요.",
+  },
+  {
+    icon: Handshake,
+    step: "STEP 03",
+    title: "운영진 중개 거래",
+    description: "운영진이 거래 전 과정을 중개해 안전하게 계정과 대금을 주고받습니다.",
+  },
+];
 
 const faqs = [
   {
