@@ -258,7 +258,7 @@ function Index() {
           </div>
 
           <p className="mt-6 text-xs text-muted-foreground">
-            가입은 30초 · 중개 수수료 없음 · 24시간 운영진 상시 대기
+            가입은 30초 · 검증된 매물만 등록 · 24시간 운영진 상시 대기
           </p>
         </div>
       </header>
