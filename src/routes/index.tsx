@@ -386,7 +386,45 @@ function Index() {
       </section>
 
       {/* Safety */}
-      <section id="safety" className="bg-card/30 py-24">
+      <section id="process" className="relative overflow-hidden py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-14 text-center">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Process</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">거래는 3단계로 끝납니다</h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              복잡한 절차 없이, 입장부터 정산까지 운영진이 함께합니다.
+            </p>
+          </div>
+
+          <div className="relative grid gap-6 md:grid-cols-3">
+            <div className="pointer-events-none absolute left-0 right-0 top-14 hidden h-px bg-linear-to-r from-primary/0 via-primary/30 to-primary/0 md:block" />
+            {steps.map((item, i) => (
+              <Reveal key={item.title} delay={i * 130}>
+                <div className="group relative h-full rounded-2xl border border-border bg-card/60 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-neon">
+                  <span className="absolute right-6 top-6 text-4xl font-black text-primary/10 transition-colors duration-300 group-hover:text-primary/25">
+                    0{i + 1}
+                  </span>
+                  <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary shadow-neon transition-transform duration-300 group-hover:scale-110">
+                    <item.icon className="size-6" />
+                  </div>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    {item.step}
+                  </p>
+                  <h3 className="mt-1 text-lg font-bold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Safety */}
+      <section id="safety" className="relative overflow-hidden bg-card/30 py-24">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 size-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" />
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-primary">Safety</p>
