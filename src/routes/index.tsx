@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
+import {
+  Shield,
+  Users,
+  MessageCircle,
+  ArrowRight,
+  Headphones,
+  Clock,
+  UserCheck,
+  Search,
+  HandshakeIcon,
+} from "lucide-react";
 
 import { getDiscordStats } from "@/lib/discord.functions";
 import { CountUp } from "@/components/count-up";
@@ -43,6 +53,20 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }),
+      },
+    ],
   }),
 });
 
