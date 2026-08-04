@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import { Shield, Users, MessageCircle, ArrowRight, Headphones, Clock } from "lucide-react";
+import {
+  Shield,
+  Users,
+  MessageCircle,
+  ArrowRight,
+  Headphones,
+  Clock,
+  UserCheck,
+  Search,
+  Handshake,
+} from "lucide-react";
 
 import { getDiscordStats } from "@/lib/discord.functions";
 import { CountUp } from "@/components/count-up";
@@ -43,6 +53,20 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }),
+      },
+    ],
   }),
 });
 
@@ -116,6 +140,27 @@ const safetyFeatures = [
 ];
 
 const numberFormat = new Intl.NumberFormat("ko-KR");
+
+const steps = [
+  {
+    icon: UserCheck,
+    step: "STEP 01",
+    title: "서버 입장 & 인증",
+    description: "디스코드 서버에 입장하고 30초 인증 절차만 마치면 모든 거래 채널이 열립니다.",
+  },
+  {
+    icon: Search,
+    step: "STEP 02",
+    title: "매물 확인",
+    description: "게임별 채널에서 검수된 계정 매물과 판매자 거래 후기를 한눈에 비교하세요.",
+  },
+  {
+    icon: Handshake,
+    step: "STEP 03",
+    title: "운영진 중개 거래",
+    description: "운영진이 거래 전 과정을 중개해 안전하게 계정과 대금을 주고받습니다.",
+  },
+];
 
 const faqs = [
   {
@@ -196,6 +241,9 @@ function Index() {
             <a href="#games" className="transition-colors hover:text-foreground">
               지원 게임
             </a>
+            <a href="#process" className="transition-colors hover:text-foreground">
+              거래 절차
+            </a>
             <a href="#safety" className="transition-colors hover:text-foreground">
               안전 보장
             </a>
@@ -258,7 +306,7 @@ function Index() {
           </div>
 
           <p className="mt-6 text-xs text-muted-foreground">
-            가입은 30초 · 중개 수수료 없음 · 24시간 운영진 상시 대기
+            가입은 30초 · 검증된 매물만 등록 · 24시간 운영진 상시 대기
           </p>
         </div>
       </header>
@@ -341,7 +389,45 @@ function Index() {
       </section>
 
       {/* Safety */}
-      <section id="safety" className="bg-card/30 py-24">
+      <section id="process" className="relative overflow-hidden py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-14 text-center">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Process</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">거래는 3단계로 끝납니다</h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              복잡한 절차 없이, 입장부터 정산까지 운영진이 함께합니다.
+            </p>
+          </div>
+
+          <div className="relative grid gap-6 md:grid-cols-3">
+            <div className="pointer-events-none absolute left-0 right-0 top-14 hidden h-px bg-linear-to-r from-primary/0 via-primary/30 to-primary/0 md:block" />
+            {steps.map((item, i) => (
+              <Reveal key={item.title} delay={i * 130}>
+                <div className="group relative h-full rounded-2xl border border-border bg-card/60 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-neon">
+                  <span className="absolute right-6 top-6 text-4xl font-black text-primary/10 transition-colors duration-300 group-hover:text-primary/25">
+                    0{i + 1}
+                  </span>
+                  <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary shadow-neon transition-transform duration-300 group-hover:scale-110">
+                    <item.icon className="size-6" />
+                  </div>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    {item.step}
+                  </p>
+                  <h3 className="mt-1 text-lg font-bold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Safety */}
+      <section id="safety" className="relative overflow-hidden bg-card/30 py-24">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 size-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" />
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-primary">Safety</p>
@@ -419,7 +505,7 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12">
+      <footer className="border-t border-border py-12 pb-32 md:pb-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
           <div className="flex items-center gap-2.5">
             <img src={logo} alt="아이디몰 로고" className="size-8 rounded-lg shadow-neon" />
