@@ -241,6 +241,9 @@ function Index() {
             <a href="#games" className="transition-colors hover:text-foreground">
               지원 게임
             </a>
+            <a href="#process" className="transition-colors hover:text-foreground">
+              거래 절차
+            </a>
             <a href="#safety" className="transition-colors hover:text-foreground">
               안전 보장
             </a>
@@ -502,7 +505,7 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12">
+      <footer className="border-t border-border py-12 pb-32 md:pb-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
           <div className="flex items-center gap-2.5">
             <img src={logo} alt="아이디몰 로고" className="size-8 rounded-lg shadow-neon" />
